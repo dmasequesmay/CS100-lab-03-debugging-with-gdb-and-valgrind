@@ -21,7 +21,7 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
     
     // try to find the three names in the theList
     for(int i = 0; i < numPeople; i++){
-        if(!strcmp(theList[i]->getName(), child_name)){
+        if(strcmp(theList[i]->getName(), child_name)){  //take out ! in comparison
             cout << "ERROR: " << child_name << " already has parents!!!";
             return;
         } else if(!strcmp(theList[i]->getName(), father_name)) {
@@ -48,7 +48,10 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
 }
 
 void PersonList::insertIntoList(Person *newPerson){
-    if(numPeople == capacity) expand(&theList, &capacity);
+    
+    if(numPeople == capacity) { //capacity is an int so no &
+        expand(&theList, capacity); 
+    } //add brackets around if statement body
 
     theList[numPeople++] = newPerson;
 }
