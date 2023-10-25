@@ -74,9 +74,9 @@ char* Person::compute_relation(int level){
 /* non-member function which doubles the size of t
  * NOTE: t's type will be a pointer to an array of pointers
  */
-void expand(Person ***t, int *MAX){
-  Person **temp = new Person*[2 * *MAX];
-  memcpy(temp, *t, *MAX * sizeof(**t));
-  *MAX *= 2;
+void expand(Person ***t, int &MAX){
+  Person **temp = new Person*[2 * MAX];
+  memcpy(temp, *t, MAX * sizeof(t));
+  MAX *= 2;
   *t = temp;
 }
