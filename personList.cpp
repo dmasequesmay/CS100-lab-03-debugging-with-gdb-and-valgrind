@@ -12,6 +12,10 @@ PersonList::PersonList(){
 }
 
 PersonList::~PersonList(){
+    //delete 2D array of pointers
+    for (int i = 0; i < numPeople; ++i) {
+        delete theList[i];
+    }
     delete [] theList;
 }
 
