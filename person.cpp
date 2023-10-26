@@ -20,7 +20,9 @@ Person::~Person(){
 }
 
 void Person::addChild(Person *newChild){
-    if(numChildren == capacity) expand(&children, capacity);
+    if(numChildren == capacity) {       // Missing brackets 
+        expand(&children, capacity);
+    }
     children[numChildren++] = newChild;
 }
 
