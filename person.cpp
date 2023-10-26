@@ -59,7 +59,9 @@ void Person::printLineage(char dir, int level){
 * if level >= 1 then returns ("great ")^(level - 1) + "grand "
 */
 char* Person::compute_relation(int level){
-    if(level == 0) return strcpy(new char[1], "");
+    if(level == 0) {
+        return strcpy(new char[1], "");
+    }
 
     char *temp = strcpy(new char[strlen("grand ") + 1], "grand ");;
     
