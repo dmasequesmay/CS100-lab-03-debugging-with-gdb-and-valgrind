@@ -12,6 +12,10 @@ PersonList::PersonList(){
 }
 
 PersonList::~PersonList(){
+    //delete 2D array of pointers
+    for (int i = 0; i < numPeople; ++i) {
+        delete theList[i];
+    }
     delete [] theList;
 }
 
@@ -21,7 +25,7 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
     
     // try to find the three names in the theList
     for(int i = 0; i < numPeople; i++){
-        if(!strcmp(theList[i]->getName(), child_name)){
+        if(!strcmp(theList[i]->getName(), child_name)){ 
             cout << "ERROR: " << child_name << " already has parents!!!";
             return;
         } else if(!strcmp(theList[i]->getName(), father_name)) {
