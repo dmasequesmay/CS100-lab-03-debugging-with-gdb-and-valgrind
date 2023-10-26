@@ -56,7 +56,7 @@ void Person::printLineage(char dir, int level){
         }
     }
 
-    delete temp;
+    delete [] temp;                                                     //delete temp array
 
 }
 
