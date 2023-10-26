@@ -16,11 +16,13 @@ Person::Person(const char *name_, Person* father_, Person* mother_){
 }
 
 Person::~Person(){
-    delete children;
+    delete[] children;
 }
 
 void Person::addChild(Person *newChild){
-    if(numChildren == capacity) expand(&children, capacity);
+    if(numChildren == capacity) {       // Missing brackets 
+        expand(&children, capacity);
+    }
     children[numChildren++] = newChild;
 }
 
@@ -59,10 +61,9 @@ void Person::printLineage(char dir, int level){
 * if level >= 1 then returns ("great ")^(level - 1) + "grand "
 */
 char* Person::compute_relation(int level){
-    if(level == 0) {
+    if(level == 0) {                             // Missing brackets
         return strcpy(new char[1], "");
     }
-
     char *temp = strcpy(new char[strlen("grand ") + 1], "grand ");;
     
     for(int i = 2; i <= level; i++){
@@ -76,6 +77,7 @@ char* Person::compute_relation(int level){
 /* non-member function which doubles the size of t
  * NOTE: t's type will be a pointer to an array of pointers
  */
+
 void expand(Person ***t, int &MAX){ //make MAX pass by reference
   Person **temp = new Person*[2 * MAX];
   memcpy(temp, *t, MAX * sizeof(**t));

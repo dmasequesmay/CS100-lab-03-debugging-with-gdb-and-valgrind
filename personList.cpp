@@ -21,7 +21,7 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
     
     // try to find the three names in the theList
     for(int i = 0; i < numPeople; i++){
-        if(strcmp(theList[i]->getName(), child_name)){  //take out ! in comparison
+        if(!strcmp(theList[i]->getName(), child_name)){ 
             cout << "ERROR: " << child_name << " already has parents!!!";
             return;
         } else if(!strcmp(theList[i]->getName(), father_name)) {

@@ -2,3 +2,6 @@ debug
 example1
 example2
 lineage
+simple.cpp
+uninitialized.cpp 
+doubleFree.cpp
